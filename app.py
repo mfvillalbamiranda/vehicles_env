@@ -21,9 +21,34 @@ if hist_button:
     # Se crea una figura vacía y luego se añade un rastro de histograma
     fig = go.Figure(data=[go.Histogram(x=car_data['odometer'])])
 
-    # Opcional: Puedes añadir un título al gráfico si lo deseas
+    # Añadir un título al gráfico si lo deseas
     fig.update_layout(title_text='Distribución del Odómetro')
 
     # Mostrar el gráfico Plotly interactivo en la aplicación Streamlit
     # 'use_container_width=True' ajusta el ancho del gráfico al contenedor
     st.plotly_chart(fig, use_container_width=True)
+
+""""Agrega otro botón que, al hacer clic en él, construya un gráfico de dispersión 
+plotly. Nuevamente, considera utilizar las funciones st.write() y st.plotly_chart(). """
+
+scatter_button = st.button('Construir gráfico de dispersión')
+
+if scatter_button:
+    st.write(
+        'Creación de un gráfico de dispersión para el conjunto de datos de anuncios de venta de coches')
+
+    # Crear un gráfico de dispersión utilizando plotly.graph_objects
+    scatter_fig = go.Figure(data=go.Scatter(
+        x=car_data['year'],
+        y=car_data['price'],
+        mode='markers',
+        marker=dict(size=5, color='rgba(152, 0, 0, .8)',
+                    line=dict(width=1, color='DarkSlateGrey'))
+    ))
+
+    # Añadir un título y etiquetas a los ejes
+    scatter_fig.update_layout(
+        title='Gráfico de Dispersión: Año vs Precio',
+        xaxis_title='Año',
+        yaxis_title='Precio'
+    )

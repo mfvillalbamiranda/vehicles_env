@@ -22,7 +22,11 @@ if hist_button:
     fig = go.Figure(data=[go.Histogram(x=car_data['odometer'])])
 
     # Añadir un título al gráfico si lo deseas
-    fig.update_layout(title_text='Distribución del Odómetro')
+    fig.update_layout(
+        title_text='Distribución del Odómetro',
+        xaxis_title_text='Lectura del Odómetro',
+        yaxis_title_text='Conteo'
+    )
 
     # Mostrar el gráfico Plotly interactivo en la aplicación Streamlit
     # 'use_container_width=True' ajusta el ancho del gráfico al contenedor

@@ -28,9 +28,6 @@ if hist_button:
     # 'use_container_width=True' ajusta el ancho del gráfico al contenedor
     st.plotly_chart(fig, use_container_width=True)
 
-""""Agrega otro botón que, al hacer clic en él, construya un gráfico de dispersión 
-plotly. Nuevamente, considera utilizar las funciones st.write() y st.plotly_chart(). """
-
 scatter_button = st.button('Construir gráfico de dispersión')
 
 if scatter_button:
@@ -39,7 +36,7 @@ if scatter_button:
 
     # Crear un gráfico de dispersión utilizando plotly.graph_objects
     scatter_fig = go.Figure(data=go.Scatter(
-        x=car_data['year'],
+        x=car_data['model_year'],
         y=car_data['price'],
         mode='markers',
         marker=dict(size=5, color='rgba(152, 0, 0, .8)',
@@ -48,7 +45,7 @@ if scatter_button:
 
     # Añadir un título y etiquetas a los ejes
     scatter_fig.update_layout(
-        title='Gráfico de Dispersión: Año vs Precio',
-        xaxis_title='Año',
+        title='Gráfico de Dispersión: Año del carro vs Precio',
+        xaxis_title='Año de fabricación',
         yaxis_title='Precio'
     )

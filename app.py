@@ -30,13 +30,14 @@ if hist_button:
 
 scatter_button = st.button('Construir gráfico de dispersión')
 
+# Lógica a ejecutar cuando se hace clic en el botón
 if scatter_button:
     st.write(
         'Creación de un gráfico de dispersión para el conjunto de datos de anuncios de venta de coches')
 
     # Crear un gráfico de dispersión utilizando plotly.graph_objects
     scatter_fig = go.Figure(data=go.Scatter(
-        x=car_data['model_year'],
+        x=car_data['cylinder'],
         y=car_data['price'],
         mode='markers',
         marker=dict(size=5, color='rgba(152, 0, 0, .8)',

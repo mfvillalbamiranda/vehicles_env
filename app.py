@@ -37,7 +37,7 @@ if scatter_button:
 
     # Crear un gráfico de dispersión utilizando plotly.graph_objects
     scatter_fig = go.Figure(data=go.Scatter(
-        x=car_data['cylinders'],
+        x=car_data['model_year'],
         y=car_data['price'],
         mode='markers',
         marker=dict(size=5, color='rgba(152, 0, 0, .8)',
@@ -50,3 +50,7 @@ if scatter_button:
         xaxis_title='Año de fabricación',
         yaxis_title='Precio'
     )
+
+    # Mostrar el gráfico Plotly interactivo en la aplicación Streamlit
+    # 'use_container_width=True' ajusta el ancho del gráfico al contenedor
+    st.plotly_chart(scatter_fig, use_container_width=True)
